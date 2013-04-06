@@ -1,8 +1,11 @@
+require "bundler/capistrano"
+
 set :application, "erikbenoist.com"
 set :domain,      "ec2-54-225-83-176.compute-1.amazonaws.com"
 set :repository,  "git@github.com:ebenoist/erikbenoist.com.git"
 set :deploy_to,   "/home/ubuntu/#{application}"
 set :use_sudo,    false
+set :deploy_via, :copy
 set :scm,         "git"
 set :user,        "ubuntu"
 
