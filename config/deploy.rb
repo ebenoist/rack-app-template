@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "rvm/capistrano"
 
 set :application, "myrackapp.com"
 set :domain,      "ec2-54-225-83-176.compute-1.amazonaws.com"
@@ -32,10 +33,7 @@ set :rvm_install_pkgs, %w[libyaml openssl] # package list from https://rvm.io/pa
 set :rvm_install_ruby_params, '--with-opt-dir=/usr/local/rvm/usr' # package support
 
 before 'deploy:setup', 'rvm:install_rvm'   # install RVM
-before 'deploy:setup', 'rvm:install_pkgs'  # install RVM packages before Ruby
 before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, or:
 before 'deploy:setup', 'rvm:create_gemset' # only create gemset
-before 'deploy:setup', 'rvm:import_gemset' # import gemset from file
 
-require "rvm/capistrano"
 

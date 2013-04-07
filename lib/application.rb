@@ -5,7 +5,7 @@ module Application
     end
 
     def log_path
-      Application.root + "/logs/application.log"
+      Application.root + "/log/application.log"
     end
   end
 end

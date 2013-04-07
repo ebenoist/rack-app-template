@@ -6,7 +6,7 @@ describe Application do
   end
 
   it "has a log folder" do
-    Application.log_path.should == Application.root + "/logs/application.log"
+    Application.log_path.should == Application.root + "/log/application.log"
   end
 end
 
