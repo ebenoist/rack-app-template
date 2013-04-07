@@ -1,0 +1,4 @@
+application_name: "myrackapp.com"
+domain: "erikbenoist.com"
+deploy_user: "ubuntu"
+repository: "git@github.com:ebenoist/rack-app-template.git"
