@@ -5,7 +5,7 @@ THIN_PID_FILE = "#{Application.root}/tmp/pids/rack.pid"
 
 desc "Start server"
 task :start do
-  pid = spawn("cd #{Application.root} && thin --port 9494 -d -P #{THIN_PID_FILE} -l #{Application.log_path} start")
+  pid = spawn("cd #{Application.root} && thin --port #{Application.config["port"]} -d -P #{THIN_PID_FILE} -l #{Application.log_path} start")
   Process.wait(pid)
 end
 
