@@ -1,3 +1,5 @@
+require "yaml"
+
 module Application
   CONFIG_MISSING_MESSAGE = <<-MSG
     Looks like you're missing  the application config.
