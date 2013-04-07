@@ -12,6 +12,7 @@ set :use_sudo,    false
 set :scm,         "git"
 set :user,        Application.config["deploy_user"]
 set :deploy_via, :remote_cache
+set :normalize_asset_timestamps, false
 
 role :app, domain
 role :web, domain
