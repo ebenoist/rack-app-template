@@ -29,7 +29,6 @@ before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, or:
 before 'deploy:setup', 'rvm:create_gemset' # only create gemset
 after 'deploy:create_symlink', 'deploy:link_config' # link the application.yml in shared
 
-
 namespace :deploy do
   task :link_config do
     run("ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml")
