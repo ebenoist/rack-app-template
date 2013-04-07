@@ -14,7 +14,11 @@ module Application
     end
 
     def config
-      YAML.load_file(root + "/config/application.yml") rescue raise CONFIG_MISSING_MESSAGE
+      begin
+      YAML.load_file(root + "/config/application.yml")
+      rescue Errno::ENOENT
+        raise CONFIG_MISSING_MESSAGE
+      end
     end
   end
 end

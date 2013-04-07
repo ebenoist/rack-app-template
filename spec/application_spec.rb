@@ -19,5 +19,11 @@ describe Application do
     YAML.stub(:load_file).and_raise(Errno::ENOENT)
     expect { Application.config }.to raise_error(Application::CONFIG_MISSING_MESSAGE)
   end
+
+  it "bubbles up other errors" do
+    error = "WOAH There!"
+    YAML.stub(:load_file).and_raise(error)
+    expect { Application.config }.to raise_error(error)
+  end
 end
 
