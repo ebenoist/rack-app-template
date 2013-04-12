@@ -41,6 +41,10 @@ namespace :deploy do
     run("ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml")
   end
 
+  task :force_restart do
+    run("cd #{current_path} && bundle exec rake force_restart")
+  end
+
   task :start do
     run("cd #{current_path} && bundle exec rake start")
   end

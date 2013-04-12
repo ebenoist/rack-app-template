@@ -17,6 +17,14 @@ task :stop do
   end
 end
 
+desc "Force restart"
+task :force_restart do
+  Rake::Task["stop"].execute
+  system("rm #{THIN_PID_FILE}")
+  Rake::Task["start"].execute
+end
+end
+
 desc "Restart server"
 task :restart do
   Rake::Task["stop"].execute
